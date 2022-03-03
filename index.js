@@ -1,6 +1,6 @@
 
 // （1）根据提供的颜色计算推荐的文本颜色
-const colourIsLight = function (r, g, b) {
+const colourIsLight = (r, g, b) => {
 
     // Counting the perceptive luminance
     // human eye favors green color... 
@@ -9,12 +9,12 @@ const colourIsLight = function (r, g, b) {
     return (a < 0.5);
 }
 // （2）根据背景色获取推荐的文本颜色
-const getTextColorByBgColor = function (color) {
+const getTextColorByBgColor = (color) => {
     const arrayRGB = color.slice(4, color.length - 1).split(',');
     return colourIsLight(arrayRGB[0], arrayRGB[1], arrayRGB[2]) ? '#000000' : '#FFFFFF';
 }
 // （3）展示在页面上
-const setbgColorAndTextColor = function (bgColour, textColour) {
+const setbgColorAndTextColor = (bgColour, textColour) => {
     var colorPancel = document.getElementById('result');
     var el = document.createElement('div');
     el.setAttribute('class', 'box');
@@ -25,7 +25,7 @@ const setbgColorAndTextColor = function (bgColour, textColour) {
     document.querySelector('.textColor').setAttribute('value', textColour);
 }
 // （4）捕捉一种颜色作为背景色
-const catchBgColor = function () {
+const catchBgColor = () => {
     utools.hideMainWindow()
     utools.screenColorPick(({ hex, rgb }) => {
         // console.log(hex) // #FFFFFF
@@ -51,7 +51,7 @@ utools.onPluginReady(function () {
 // （5）、（6）、（7）未使用
 
 // （5）随机获取一个RGB颜色数组[R，G，B]
-const randomRgb = function () {
+const randomRgb = () => {
     var r = Math.floor(Math.random() * 256);
     var g = Math.floor(Math.random() * 256);
     var b = Math.floor(Math.random() * 256);
@@ -59,12 +59,12 @@ const randomRgb = function () {
 };
 
 // （6）组合成rgb模式的颜色
-const colourFromRgb = function (r, g, b) {
+const colourFromRgb = (r, g, b) => {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
 };
 
 // （7）根据（5）、（6）获取最佳的文本颜色并将效果展示在页面上!
-const setbgColorAndTextColor = function () {
+const setbgColorAndTextColor = () => {
     var colorPancel = document.getElementById('result');
     var el = document.createElement('div');
     el.setAttribute('class', 'box');
