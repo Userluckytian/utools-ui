@@ -64,7 +64,7 @@ const colourFromRgb = (r, g, b) => {
 };
 
 // （7）根据（5）、（6）获取最佳的文本颜色并将效果展示在页面上!
-const setbgColorAndTextColor = () => {
+const setRandomBgColorAndTextColor = () => {
     var colorPancel = document.getElementById('result');
     var el = document.createElement('div');
     el.setAttribute('class', 'box');
