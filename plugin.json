@@ -1,0 +1,33 @@
+{
+    "main": "index.html",
+    "preload": "preload.js",
+    "logo": "logo.png",
+    "platform": [
+        "win32",
+        "darwin",
+        "linux"
+    ],
+    "pluginSetting": {
+        "single": true,
+        "height": 164
+    },
+    "features": [
+        {
+            "code": "getTextColor",
+            "code_des": "插件某个功能的识别码，在进入插件时会传递给你的代码，可用于区分不同的功能，显示不同的 UI, 简言之就是：查询操作中，输入的关键词",
+            "explain": "获取文本颜色",
+            "icon": "icon/color.png",
+            "platform": [
+                "win32",
+                "darwin",
+                "linux"
+            ],
+            "cmds": [
+                "背景",
+                "字体",
+                "颜色"
+            ],
+            "cmds_des": "用户输入哪些关键词可以触发提示该组件！"
+        }
+    ]
+}
