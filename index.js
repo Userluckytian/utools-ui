@@ -35,18 +35,34 @@ const catchBgColor = () => {
         utools.copyText(textColor)
         setbgColorAndTextColor(bgColor, textColor);
         utools.showNotification('颜色' + textColor + '已复制')
-        // setTimeout(() => {
-        //     window.utools.outPlugin()
-        // }, 100);
     })
 }
 
+/**
+ *  tip：（0-1）、（0-2）、（0-3）、（0-4）是全部过程! (1)、(2)、(3)、(4)是辅助函数
+ * 
+*/
 
-// （0）主入口
+// （0-1）主入口
 utools.onPluginReady(function () {
     console.log('插件装配完成，已准备好')
+});
+// （0-2）进入时事件主动执行!
+utools.onPluginEnter(({ code, type, payload }) => {
     catchBgColor()
 });
+
+// （0-3）退出时，清空所有的内容
+utools.onPluginOut(() => {
+    // 隐藏窗体
+    utools.hideMainWindow()
+    // 移除色卡
+    document.querySelector('.box').remove();
+})
+// （0-4）退出页面时，会自动调用该事件！
+utools.outPlugin()
+
+
 
 // （5）、（6）、（7）未使用
 
